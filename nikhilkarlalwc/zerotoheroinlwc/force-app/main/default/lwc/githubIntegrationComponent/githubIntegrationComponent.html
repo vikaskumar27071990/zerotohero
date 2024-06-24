@@ -1,0 +1,20 @@
+<!-- githubIntegrationComponent.html -->
+<template>
+    <lightning-card title="GitHub User Search" icon-name="standard:search">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Enter GitHub Username" value={searchTerm} onchange={handleSearchTermChange}></lightning-input>
+            <template if:true={userData}>
+                <div>
+                    <p>Name: {userData.name}</p>
+                    <p>Username: {userData.login}</p>
+                    <p>Followers: {userData.followers}</p>
+                    <p>Following: {userData.following}</p>
+                    <p>Public Repositories: {userData.public_repos}</p>
+                </div>
+            </template>
+            <template if:true={error}>
+                <p>Error: {error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

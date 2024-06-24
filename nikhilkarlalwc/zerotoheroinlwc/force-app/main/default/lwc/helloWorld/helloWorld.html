@@ -1,5 +1,4 @@
 <template>
-
 <lightning-card  title="Two-Way Binding">
     <div class="slds-m-top_medium">
     <lightning-input type="text" 
@@ -22,6 +21,16 @@
 </div>
 </lightning-card>
 
+<lightning-card  title="JS REALTIME GENERATE COPY OF DATA">
+    <div class="slds-m-top_medium">
+    <lightning-input type="text" 
+    label="Enter City Name"
+    onkeyup={trackhandler1}
+    ></lightning-input>
+<div>{address1.city} is the city</div>
+</div>
+</lightning-card>
+
 
 
 <lightning-card  title="getter properties">
@@ -31,4 +40,65 @@
 </div>
 </lightning-card>
 
+
+<lightning-card  title="Conditional Rendering Example One">
+<lightning-button onclick={handlerClick} label="Show Data" title="Show Data"></lightning-button>
+    <template if:true={isvisibale}>
+        <div>Welcome Here</div>
+    </template>
+
+    <template if:false={isvisibale}><div>Data Not Visible</div></template><br/><br/>
+
+</lightning-card>
+
+<lightning-input
+type="text"
+label="Conditional Rendering Example Two(Type hello to see data)"
+onkeyup={changeHandler}
+> </lightning-input>
+<template if:true={helloMethod}>
+<div>Hurey!! you types correctly</div>
+</template>
+<div title="don't use in  if:true,because it Always return false value">
+    <p>don't use in  if:true,because it Always return false value</p>
+    <h1>False Value=>0,false,undefinded,null,""</h1>
+</div>
+
+<lightning-card  title="for:each loop">
+    <div class="slds-m-top_medium">
+        <template for:each={carList} 
+                  for:item="car">
+<ul key={car} class="slds-has-dividers_around-space">
+    <li class="slds-item">{car}</li>
+    </ul>
+
+        </template>
+    </div>
+</lightning-card>
+
+
+<lightning-card  title="iterator:item">
+    <div class="slds-m-top_medium">
+        <template iterator:item={ceoList}>
+         <div key={item.value.id}>
+            <ul  class="slds-has-dividers_around-space">
+                <li class="slds-item"><strong>{item.value.company} </strong>{item.value.name}</li>
+                </ul>
+
+         </div>
+
+        </template>
+    </div>
+</lightning-card>
+
+<lightning-card  title="iterator:item OLD">
+    <div class="slds-m-top_medium">
+        <template iterator:item={ceoList}>
+         <div key={item.value.id}>
+            <strong>{item.value.company} </strong>{item.value.name}
+         </div>
+
+        </template>
+    </div>
+</lightning-card>
 </template>
